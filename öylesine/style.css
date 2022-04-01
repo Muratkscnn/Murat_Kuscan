@@ -1,0 +1,68 @@
+.input-group-text{
+    background-color: white !important;
+    border-right: none !important;
+}
+#text{
+    border-left: none !important; 
+}
+#text:focus{
+    box-shadow: none !important;
+    
+}
+
+#text:focus{
+    border-color:  #ced4da !important;
+    
+}
+#table1, #table2, #table3, #table4 {
+    display: none;
+}
+
+@media (max-width: 767px) {
+    .carousel-inner .carousel-item > div {
+        display: none;
+    }
+    .carousel-inner .carousel-item > div:first-child {
+        display: block;
+    }
+}
+
+.carousel-inner .carousel-item.active,
+.carousel-inner .carousel-item-next,
+.carousel-inner .carousel-item-prev {
+    display: flex;
+}
+
+/* medium and up screens */
+@media (min-width: 768px) {
+    
+    .carousel-inner .carousel-item-end.active,
+    .carousel-inner .carousel-item-next {
+      transform: translateX(25%);
+    }
+    
+    .carousel-inner .carousel-item-start.active, 
+    .carousel-inner .carousel-item-prev {
+      transform: translateX(-25%);
+    }
+}
+
+.carousel-inner .carousel-item-end,
+.carousel-inner .carousel-item-start { 
+  transform: translateX(0);
+}
+
+
+.carousel-control-next-icon,.carousel-control-prev-icon{
+    border-radius: 100%;
+    width: 40px;
+    height: 40px;
+}
+.carousel-control-next-icon:hover{
+    width: 75px;
+    height: 75px;
+}
+.carousel-control-prev-icon:hover{
+    width: 75px;
+    height: 75px;
+}
