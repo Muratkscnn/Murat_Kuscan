@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <nav>
+        <div class="nav">
+            <div class="logo">WİSSEN</div>
+            <div class="nav-item">
+                <ul>
+                    <li><a href="index.html">ANASAYFA</a></li>
+                    <li><a href="#HTML">HTML</a></li>
+                    <li><a href="#CSS">CSS</a></li>
+                    <li><a href="#JAVASCRİPT">JAVASCRİPT</a></li>
+                    <li><a href="#BOOTSTRAP">BOOTSTRAP</a></li>
+                    <li><a href="#JQUERY">JQUERY</a></li>
+                    <li><a href="#HAKKIMDA">HAKKIMDA</a></li>
+                    <li><a href="#İLETİŞİM">İLETİŞİM</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div class="entry-content">
+		
+        <h1>Css Flex ile ilgili Her şey</h1>
+
+        <p>Bu yazımda sizlere CSS Flex modülü ile ilgili tüm kullanımları, ipuçlarını göstermek istiyorum. Bu yazının sonunda CSS Flex nedir, nasıl kullanılır, nerelerde kullanılır gibi sorularınıza yanıt bulabileceksiniz. Hazırsanız başlayalım 🙂</p>
+        
+        
+        
+        <h2>Flex Yapısı Nedir?</h2>
+        
+        
+        
+        <p>Boyutları bilinmeyen-dinamik alanları daha kolay yönetmek için W3C bize al abicim sana flex, istediğin gibi alanını yönet demiş. Hatırlarsınız, eskiden öğeleri sağa-sola dayamak için float kullanır, dikey ortalamak için css’e takla attırırdık. Ancak flex yapısı ile, artık kapsayıcıya ve içindeki öğelerine esneklik getirebiliyoruz. </p>
+        
+        
+        
+        <p>Flex’i kullanmamızın en büyük sebebi, esnek yapıları kolayca yönetmek için. Çünkü yapıya esneklik verdiği için, yatay ve dikey hizalarda nasıl görüneceğini, öğelerin kendi içinde hizalanmalarını ve sırasını belirlemek gibi güzel özellikleri bulunuyor. Ayrıca tüm çözünürlüklerde ve cihazlarda daha hızlı ve esnek bir yapı kullanmak için, flex bizim tamda ihtiyacımız olan şey.</p>
+        
+        
+        
+        <p>Flex genel anlamıyla bir CSS özelliğinin adı değil, yapının adıdır. Dolayısı ile flex yapısı altında hem kapsayıcı (container) için hemde içindeki öğeler (items) için birden fazla flex özelliği bulunmaktadır. Bu makalede hepsini incelemeye ve anlamaya çalışacağız.</p>
+        
+        
+        
+        <span id="more-854"></span>
+        
+        
+        
+        <h2>Kapsayıcı (Container) için Flex Özellikleri</h2>
+        
+        
+        
+        <p>Flex modülü hem kapsayıcı hem de öğeler için özelliker sunuyor. İlk olarak kapsayıcı için hangi özellikler var, nasıl kullanılıyor bunlara bir gözatalım.</p>
+        
+        
+        
+        <h2>display</h2>
+        
+        
+        
+        <figure class="wp-block-image"><img src="http://www.erbilen.net/wp-content/uploads/2019/09/css-display-flex.png" alt="" class="wp-image-859"></figure>
+        
+        
+        
+        <p>Bu aslında zaten kullandığımız bir özellik. Flex’le birlikte görünüm boyutlarına bir yenisi eklendi. </p>
+        
+        
+        
+        <pre class="wp-block-preformatted prettyprint prettyprinted" style=""><span class="pun">.</span><span class="pln">container </span><span class="pun">{</span><span class="pln">
+            display</span><span class="pun">:</span><span class="pln"> flex</span><span class="pun">;</span><span class="pln"> </span><span class="com">/* ya da inline-flex */</span><span class="pln">
+        </span><span class="pun">}</span></pre>
+        
+        
+        
+        <p><code>display: flex;</code> ya da <code>display: inline-flex;</code> kullanılarak kapsayıcı içerisindeki öğelere artık esneklik vermeye başlayabiliriz. Bu tanımla artık bu kapsayıcının esnek bir görünümde olduğunu belirtiyoruz. <code>flex</code> ile <code>inline-flex</code> farkı, <code>block</code> ile <code>inline</code> tanımları ile aynıdır. </p>
+        
+        
+        
+        <h2>flex-direction</h2>
+        
+        
+        
+        <figure class="wp-block-image"><img src="https://i1.wp.com/www.erbilen.net/wp-content/uploads/2019/09/css-flex-direction.png?fit=492%2C1024" alt="" class="wp-image-861"><figcaption>Demo: <a href="https://codepen.io/tayfunerbilen/pen/yLBWONr">https://codepen.io/tayfunerbilen/pen/yLBWONr</a></figcaption></figure>
+        
+        
+        
+        <p>Öğelerin yönünü belirlemek için kullanılır. Varsayılan olarak flex container yataya doğru uzar. Dolayısı ile bu kapsayıcı içindeki tüm öğeler yan yana listelenir. Bu özelliğin aldığı birkaç değeri inceleyip ne işe yaradıklarını anlayalım;</p>
+        
+        
+        
+        <pre class="wp-block-preformatted prettyprint prettyprinted" style=""><span class="pun">.</span><span class="pln">container </span><span class="pun">{</span><span class="pln">
+            flex</span><span class="pun">-</span><span class="pln">direction</span><span class="pun">:</span><span class="pln"> row </span><span class="pun">|</span><span class="pln"> row</span><span class="pun">-</span><span class="pln">reverse </span><span class="pun">|</span><span class="pln"> column </span><span class="pun">|</span><span class="pln"> column</span><span class="pun">-</span><span class="pln">reverse</span><span class="pun">;</span><span class="pln">
+        </span><span class="pun">}</span></pre>
+        
+        
+        
+        <ul><li><code>row</code> (varsayılan) = soldan sağa doğru sıralar.</li><li><code>row-reverse</code> = sağdan sola doğru sıralar.</li><li><code>column</code> = yukarıdan aşağı doğru sıralar.</li><li><code>column-reverse</code> = aşağıdan yukarı doğru sıralar.</li></ul>
+        
+        
+        
+        <h2>flex-wrap</h2>
+        
+        
+        
+        <figure class="wp-block-image"><img src="http://www.erbilen.net/wp-content/uploads/2019/09/css-flex-wrap.png" alt="" class="wp-image-863"><figcaption>Demo: <a href="https://codepen.io/tayfunerbilen/pen/zYOQBWR">https://codepen.io/tayfunerbilen/pen/zYOQBWR</a></figcaption></figure>
+        
+        
+        
+        <p>Varsayılan olarak esnek öğeler tek bir satıra sığmaya çalışırlar. Gerektiğinde birden fazla satıra yaymak için bu özelliği kullanabilirsiniz.</p>
+        
+        
+        
+        <pre class="wp-block-preformatted prettyprint prettyprinted" style=""><span class="pun">.</span><span class="pln">container </span><span class="pun">{</span><span class="pln">
+            flex</span><span class="pun">-</span><span class="pln">wrap</span><span class="pun">:</span><span class="pln"> nowrap </span><span class="pun">|</span><span class="pln"> wrap </span><span class="pun">|</span><span class="pln"> wrap</span><span class="pun">-</span><span class="pln">reverse</span><span class="pun">;</span><span class="pln">
+        </span><span class="pun">}</span></pre>
+        
+        
+        
+        <ul><li><code>nowrap</code> (varsayılan) = Tüm öğeleri tek bir satıda yan yana listeler.</li><li><code>wrap</code> = Öğeler gerektiğinde birden fazla satırda yukarıdan aşağı doğru listelenir.</li><li><code>wrap-reverse</code> = Öğeler gerektiğinde birden fazla satırda aşağıdan yukarı doğru listelenir.</li></ul>
+        
+        
+        
+        <h2>flex-flow</h2>
+        
+        
+        
+        <p>Bu özellik <code>flex-direction</code> ve <code>flex-wrap</code> özelliklerinin kısayoludur. Her ikisini tek bir özellikte tanımlayarak kullanabilirsiniz. Yani şu şekilde yazmak yerine;</p>
+        
+        
+        
+        <pre class="wp-block-preformatted prettyprint prettyprinted" style=""><span class="pun">.</span><span class="pln">container </span><span class="pun">{</span><span class="pln">
+            flex</span><span class="pun">-</span><span class="pln">direction</span><span class="pun">:</span><span class="pln"> column</span><span class="pun">;</span><span class="pln">
+            flex</span><span class="pun">-</span><span class="pln">wrap</span><span class="pun">:</span><span class="pln"> wrap</span><span class="pun">;</span><span class="pln">
+        </span><span class="pun">}</span></pre>
+        
+        
+        
+        <p>Şu şekilde yazabilirsiniz;</p>
+        
+        
+        
+        <pre class="wp-block-preformatted prettyprint prettyprinted" style=""><span class="pun">.</span><span class="pln">container </span><span class="pun">{</span><span class="pln">
+            flex</span><span class="pun">-</span><span class="pln">flow</span><span class="pun">:</span><span class="pln"> column wrap</span><span class="pun">;</span><span class="pln">
+        </span><span class="pun">}</span></pre>
+        
+        
+        
+        <h2>justify-content</h2>
+        
+        
+        
+        <figure class="wp-block-image"><img src="https://i2.wp.com/www.erbilen.net/wp-content/uploads/2019/09/flex-justify-content.png?fit=840%2C994" alt="" class="wp-image-866"><figcaption>Demo: <a href="https://codepen.io/tayfunerbilen/pen/qBWGNgL">https://codepen.io/tayfunerbilen/pen/qBWGNgL</a></figcaption></figure>
+        
+        
+        
+        <pre class="wp-block-preformatted prettyprint prettyprinted" style=""><span class="pun">.</span><span class="pln">container </span><span class="pun">{</span><span class="pln">
+            justify</span><span class="pun">-</span><span class="pln">content</span><span class="pun">:</span><span class="pln"> flex</span><span class="pun">-</span><span class="pln">start </span><span class="pun">|</span><span class="pln"> flex</span><span class="pun">-</span><span class="kwd">end</span><span class="pln"> </span><span class="pun">|</span><span class="pln">&nbsp;center </span><span class="pun">|</span><span class="pln"> space</span><span class="pun">-</span><span class="pln">between </span><span class="pun">|</span><span class="pln"> space</span><span class="pun">-</span><span class="pln">around </span><span class="pun">|</span><span class="pln"> space</span><span class="pun">-</span><span class="pln">evenly</span><span class="pun">;</span><span class="pln">
+        </span><span class="pun">}</span></pre>
+        
+        
+        
+        <p>Öğelerin yatay eksende hizasını ayarlamak için kullanılır.  Yukarıdaki görselde kullanımları ve sonuçları gösterilmiştir. Birde değerlerin ne işe yaradıklarına bakalım.</p>
+        
+        
+        
+        <ul><li><code>flex-start</code> (varsayılan) = Öğeleri başlangıç noktasında (sola dayalı) hizalar.</li><li><code>flex-end</code> = Öğeleri bitiş noktasında (sağa dayalı) hizalar.</li><li><code>center</code> = Öğeleri ortada hizalar.</li><li><code>space-between</code> = İlk öğe sola dayalı, son öğe sağa dayalı ve diğerleri ortalı olacak şekilde hizalar.</li><li><code>space-around</code> = İlk ve son öğe hariç diğerlerinin arası eşit olacak şekilde hizalar. </li><li><code>space-evenly</code> = Tüm öğelerin arası aynı eşitlikte olacak şekilde hizalar.</li></ul>
+        
+        
+        
+        <p>Unutmadan, yukarıda gösterilen değerler tarayıcıların tamamı tarafından doğru şekilde desteklenenler. Bunun dışında, left, right, start, end gibi başka değerlerde olmasına karşın, şu an da çok sağlıklı sonuçlar vermediği için anlatma gereği duymadım. Dileyenler <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/justify-content">şu adresten</a> gözatabilirler.</p>
+        
+        
+        
+        <h2>align-items</h2>
+        
+        
+        
+        <figure class="wp-block-image"><img src="https://i1.wp.com/www.erbilen.net/wp-content/uploads/2019/09/css-flex-align-items-2.png?fit=840%2C911" alt="" class="wp-image-883"><figcaption class="below-entry-meta">Demo: <a href="https://codepen.io/tayfunerbilen/pen/rNBgMVr">https://codepen.io/tayfunerbilen/pen/rNBgMVr</a></figcaption></figure>
+        
+        
+        
+        <pre class="wp-block-preformatted prettyprint prettyprinted" style=""><span class="pun">.</span><span class="pln">container </span><span class="pun">{</span><span class="pln">
+            align</span><span class="pun">-</span><span class="pln">items</span><span class="pun">:</span><span class="pln"> stretch </span><span class="pun">|</span><span class="pln"> flex</span><span class="pun">-</span><span class="pln">start </span><span class="pun">|</span><span class="pln"> flex</span><span class="pun">-</span><span class="kwd">end</span><span class="pln"> </span><span class="pun">|</span><span class="pln"> center </span><span class="pun">|</span><span class="pln"> baseline</span><span class="pun">;</span><span class="pln">
+        </span><span class="pun">}</span></pre>
+        
+        
+        
+        <p>Öğelerin dikey eksende hizasını ayarlamak için kullanılır. Yukarıdaki görselde kullanımları ve sonuçları gösterilmiştir. Birde değerlerin ne işe yaradıklarına bakalım.</p>
+        
+        
+        
+        <ul><li><code>flex-start</code> = Öğeleri yukarıya doğru hizalar.</li><li><code>flex-end</code> = Öğeleri aşağıya doğru hizalar.</li><li><code>center</code> = Öğeleri ortaya doğru hizalar.</li><li><code>baseline</code> = Öğelerin içindeki ilk satırı baz alarak ortalama yapar.</li><li><code>stretch</code> (varsayılan) = Hizalama yapmaz, öğelerin yüksekliklerini kapsayıcıya göre uzatır.</li></ul>
+        
+        
+        
+        <h2>align-content</h2>
+        
+        
+        
+        <figure class="wp-block-image"><img src="https://i0.wp.com/www.erbilen.net/wp-content/uploads/2019/09/css-flex-align-content-1.png?fit=840%2C1006" alt="" class="wp-image-881 below-entry-meta"><figcaption class="below-entry-meta">Demo: <a href="https://codepen.io/tayfunerbilen/pen/qBWGare">https://codepen.io/tayfunerbilen/pen/qBWGare</a></figcaption></figure>
+        
+        
+        
+        <pre class="wp-block-preformatted prettyprint prettyprinted" style=""><span class="pun">.</span><span class="pln">container </span><span class="pun">{</span><span class="pln">
+            align</span><span class="pun">-</span><span class="pln">content</span><span class="pun">:</span><span class="pln"> stretch </span><span class="pun">|</span><span class="pln"> flex</span><span class="pun">-</span><span class="pln">start </span><span class="pun">|</span><span class="pln"> flex</span><span class="pun">-</span><span class="kwd">end</span><span class="pln"> </span><span class="pun">|</span><span class="pln"> center </span><span class="pun">|</span><span class="pln"> space</span><span class="pun">-</span><span class="pln">between </span><span class="pun">|</span><span class="pln"> space</span><span class="pun">-</span><span class="pln">evenly</span><span class="pun">;</span><span class="pln">
+        </span><span class="pun">}</span></pre>
+        
+        
+        
+        <p>Çok satırlı yapılarda öğelerin diyek eksende hizasını ayarlamak için kullanılır. Yukarıdaki görselde kullanımları ve sonuçları gösterilmiştir. Birde değerlerin ne işe yaradıklarına bakalım.</p>
+        
+        
+        
+        <ul><li><code>flex-start</code> = Öğeleri dikey eksende başta hizalar.</li><li><code>flex-end</code> = Öğeleri dikey eksende sonra hizalar.</li><li><code>center</code> = Öğeleri dikey eksende ortalı hizalar.</li><li><code>stretch</code> (varsayılan) = Öğeleri hizalamaz, yüksekliklerini uzatır.</li><li><code>space-between</code> = İlk satıdaki öğeler başta, son satırdaki öğeler sonra olmak üzere diğer satırdaki öğeleri dikey eksende ortalar.</li><li><code>space-evenly</code> = Öğeleri satırlar arası eşit oranda olacak şekilde dikey eksende ortalar.</li></ul>
+        
+        
+        
+        <h2>Öğeler (items) için Flex Özellikleri</h2>
+        
+        
+        
+        <p>Yukarıda anlatılan flex özellikleri, kapsayıcıya aitti. Birde içindeki öğeler için esnek yapıda neler yapabiliyoruz, onlara gözatalım.</p>
+        
+        
+        
+        <h2>order</h2>
+        
+        
+        
+        <figure class="wp-block-image"><img src="http://www.erbilen.net/wp-content/uploads/2019/09/css-flex-order.png" alt="" class="wp-image-888 below-entry-meta"><figcaption class="below-entry-meta">Demo: <a href="https://codepen.io/tayfunerbilen/pen/OJLYRez">https://codepen.io/tayfunerbilen/pen/OJLYRez</a></figcaption></figure>
+        
+        
+        
+        <p>Öğelerin sıralanışını değiştirmek için kullanılır. Burada dikkat edilmesi gereken, varsayılan olarak 0 olduğu için tüm öğeler, eğer sonuncu öğeyi bir öncesine almak isterseniz, bir önceki öğeninde order değerini belirtmeniz gerekir.</p>
+        
+        
+        
+        <pre class="wp-block-preformatted prettyprint prettyprinted" style=""><span class="pun">.</span><span class="pln">item5 </span><span class="pun">{</span><span class="pln">
+            order</span><span class="pun">:</span><span class="pln"> </span><span class="lit">6</span><span class="pun">;</span><span class="pln">
+        </span><span class="pun">}</span><span class="pln">
+        </span><span class="pun">.</span><span class="pln">item6 </span><span class="pun">{</span><span class="pln">
+            order</span><span class="pun">:</span><span class="pln"> </span><span class="lit">5</span><span class="pun">;</span><span class="pln">
+        </span><span class="pun">}</span></pre>
+        
+        
+        
+        <h2>flex-grow</h2>
+        
+        
+        
+        <figure class="wp-block-image"><img src="http://www.erbilen.net/wp-content/uploads/2019/09/css-flex-grow.png" alt="" class="wp-image-889 below-entry-meta"><figcaption class="below-entry-meta">Demo: <a href="https://codepen.io/tayfunerbilen/pen/WNeBoNg">https://codepen.io/tayfunerbilen/pen/WNeBoNg</a></figcaption></figure>
+        
+        
+        
+        <p>Bir öğeyi diğerlerine göre daha büyük göstermek için bu özelliği kullanıyoruz. Varsayılan değeri 0’dır. Eğer öğelerden birisinin değerini 2 yaparsanız diğerlerine göre daha büyük olacaktır ancak kalanı daralacaktır. İlk olarak tüm öğelerin değerini 1 yapıp, daha sonra bir öğenin değerini 2 yaparsanız, sonuç olarak diğer öğelere göre 2 kat daha büyük bir öğeye sahip olacaksınız.</p>
+        
+        
+        
+        <pre class="wp-block-preformatted prettyprint prettyprinted" style=""><span class="pun">.</span><span class="pln">item </span><span class="pun">{</span><span class="pln">
+            flex</span><span class="pun">-</span><span class="pln">grow</span><span class="pun">:</span><span class="pln"> </span><span class="lit">1</span><span class="pun">;</span><span class="pln">
+        </span><span class="pun">}</span><span class="pln">
+        </span><span class="pun">.</span><span class="pln">item4 </span><span class="pun">{</span><span class="pln">
+            flex</span><span class="pun">-</span><span class="pln">grow</span><span class="pun">:</span><span class="pln"> </span><span class="lit">2</span><span class="pun">;</span><span class="pln">
+        </span><span class="pun">}</span><span class="pln">
+        </span><span class="pun">.</span><span class="pln">item5 </span><span class="pun">{</span><span class="pln">
+            flex</span><span class="pun">-</span><span class="pln">grow</span><span class="pun">:</span><span class="pln"> </span><span class="lit">4</span><span class="pun">;</span><span class="pln">
+        </span><span class="pun">}</span></pre>
+        
+        
+        
+        <h2>flex-shrink</h2>
+        
+        
+        
+        <figure class="wp-block-image"><img src="http://www.erbilen.net/wp-content/uploads/2019/09/css-flex-shrink.png" alt="" class="wp-image-890"><figcaption>Demo: <a href="https://codepen.io/tayfunerbilen/pen/zYOQorx">https://codepen.io/tayfunerbilen/pen/zYOQorx</a></figcaption></figure>
+        
+        
+        
+        <p>Bu aslında <code>flex-grow</code> özelliğinin tam aksine, küçültme işlemi için kullanılır. Varsayılan olarak değeri 1’dir. Eğer bir öğeye değer olarak 2 verirseniz, diğerlerine göre küçülmesi gerektiğinde daha önce küçülecektir. Değeri artırırsanız örneğin 4. öğeye 2, 5. öğeye 3 değeri verirseniz, küçülme esnasında her ikiside küçülecektir ancak 5. öğe 4. öğeye göre daha hızlı küçülecektir. Zaten bu öğelerde artık küçülecek yer kalmadığında diğer öğeler küçülmeye başlar. Esnek yapılarda bildiğiniz gibi kapsayıcıya göre genişlik ve yükseklik ayarlanmaktadır. Bu gibi durumlarda büyümeye ve küçülmeye müdahale için bu özellik işe yarayacaktır.</p>
+        
+        
+        
+        <pre class="wp-block-preformatted prettyprint prettyprinted" style=""><span class="pun">.</span><span class="pln">item4 </span><span class="pun">{</span><span class="pln">
+            flex</span><span class="pun">-</span><span class="pln">shrink</span><span class="pun">:</span><span class="pln"> </span><span class="lit">2</span><span class="pun">;</span><span class="pln">
+        </span><span class="pun">}</span><span class="pln">
+        </span><span class="pun">.</span><span class="pln">item5 </span><span class="pun">{</span><span class="pln">
+            flex</span><span class="pun">-</span><span class="pln">shrink</span><span class="pun">:</span><span class="pln"> </span><span class="lit">3</span><span class="pun">;</span><span class="pln">
+        </span><span class="pun">}</span></pre>
+        
+        
+        
+        <h2>flex-basis</h2>
+        
+        
+        
+        <p>Öğelerin eğer alanı yetiyorsa olması gereken genişliği belirlemek için kullanılır. Değer olarak tüm uzunluk birimleri (px, pt, em vb.) kullanılabilir. Varsayılan olarak değeri auto’dur. Eğer değer olarak 0 belirlenirse, doğrudan sadece içindeki değer kadar genişliği olur.</p>
+        
+        
+        
+        <figure class="wp-block-image"><img src="http://www.erbilen.net/wp-content/uploads/2019/09/css-flex-basis.png" alt="" class="wp-image-893"><figcaption>Demo: <a href="https://codepen.io/tayfunerbilen/pen/rNBgmQL">https://codepen.io/tayfunerbilen/pen/rNBgmQL</a></figcaption></figure>
+        
+        
+        
+        <p>Örneğin 3. öğeye %40, 4. öğeye ise 0 değerlerini verdiğimizde yukarıdaki gibi bir sonuç elde ederiz.</p>
+        
+        
+        
+        <pre class="wp-block-preformatted prettyprint prettyprinted" style=""><span class="pun">.</span><span class="pln">item3 </span><span class="pun">{</span><span class="pln">
+            flex</span><span class="pun">-</span><span class="pln">basis</span><span class="pun">:</span><span class="pln"> </span><span class="lit">40</span><span class="pun">%;</span><span class="pln">
+        </span><span class="pun">}</span><span class="pln">
+        </span><span class="pun">.</span><span class="pln">item4 </span><span class="pun">{</span><span class="pln">
+            flex</span><span class="pun">-</span><span class="pln">basis</span><span class="pun">:</span><span class="pln"> </span><span class="lit">0</span><span class="pun">;</span><span class="pln">
+        </span><span class="pun">}</span></pre>
+        
+        
+        
+        <h2>flex</h2>
+        
+        
+        
+        <p>Sırasıyla <code>flex-grow</code>, <code>flex-shrink</code> ve <code>flex-basis</code> özelliklerinin kısa kullanımıdır. İlk değeri zorunlu olup (shrink ve basis) değerlerini belirtmek zorunlu değildir. Varsayılan olarak <code>0 1 auto</code> değerine sahiptir. Ve en sık kullanımı da şöyledir;</p>
+        
+        
+        
+        <pre class="wp-block-preformatted prettyprint prettyprinted" style=""><span class="pun">.</span><span class="pln">item1 </span><span class="pun">{</span><span class="pln">
+            flex</span><span class="pun">:</span><span class="pln"> </span><span class="lit">1</span><span class="pln"> </span><span class="lit">1</span><span class="pln"> </span><span class="kwd">auto</span><span class="pun">;</span><span class="pln">
+        </span><span class="pun">}</span></pre>
+        
+        
+        
+        <h2>align-self</h2>
+        
+        
+        
+        <figure class="wp-block-image"><img src="http://www.erbilen.net/wp-content/uploads/2019/09/css-align-self.png" alt="" class="wp-image-894"><figcaption>Demo: <a href="https://codepen.io/tayfunerbilen/pen/PoYvbzR">https://codepen.io/tayfunerbilen/pen/PoYvbzR</a></figcaption></figure>
+        
+        
+        
+        <p><code>align-content</code> ile aynı işlemleri yapar. Dikey eksende öğelerin nasıl hizalanacağı belirlenir. Tek farkı kapsayıcı yerine bunu öğelere uygulamasıdır.</p>
+        
+            </div>
+</body>
+</html>
