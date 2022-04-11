@@ -1,9 +1,60 @@
 .banner{
-    position: fixed;
-    z-index: 1;
+    
     background-color: #272829; 
     height: 70px;
 }
+
+.top{
+    width: 100%;
+    display: block;
+    position: fixed;
+    z-index: 5;
+}
+.top-menu-lg{
+    background-color: #272829;
+    height: 70px;
+}
+.navbar-toggler{
+    display: inline !important;
+}
+.offcanvas a{
+    color: #000 !important;
+}
+
+.bot-menu-lg{
+    height: 35.19px;
+    background-color: #f06730 !important;
+}
+
+.social-logos i, .icons a{
+    background-color: #282828 !important;
+    color: white !important;
+    font-size: 25px;
+    border-radius: 50%;
+    padding: 0.05em 0.07em;
+}
+
+.menu-sm{
+    height: 48.31px;
+    background-color: #272829 !important;
+}
+
+.fa{
+    color: #ffffff;
+}
+
+.offcanvas-header{
+    background-color: #272829;
+}
+
+.offcanvas-body{
+    background-color: #f3f3f3 !important;
+}
+
+.offcanvas-body i{
+    color: #272829;
+}
+
 
 .nav-link{
     color: white !important;
@@ -37,6 +88,24 @@
     opacity: 1 !important;
 
 }
+.searchbutton{
+    display: none;
+    width: 49px;
+    border-radius: 20px;
+    background-color:white ;
+    padding: 5px 10px;
+    font-size: .9rem;
+    text-decoration: none;
+    text-align: center;
+    color: black;
+    font-weight: bold;
+    
+
+}
+#textbox{
+    display: none;
+    border-radius: 20px;
+}
 .carousel-indicators{
     margin-bottom: 0px !important;
     position: relative !important;
@@ -45,6 +114,9 @@
      background-color: #f06730 !important;
 
  }
+#togle1{
+    display: none !important;
+}
  #table1, #table2, #table3, #table4 {
     display: none;
 }
@@ -106,7 +178,7 @@ footer{
     color: white;
     font-size: 16px;
 }
-.mobil img{
+.footerbanner img{
     width:102px ;
     height:34px ;
 
