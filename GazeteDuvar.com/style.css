@@ -186,3 +186,15 @@ footer{
 .mobil{
     font-weight: bold;
 }
+@media only screen and (max-width: 1000px) {
+    .firstcards {
+        flex-direction: column;
+    }
+    .card{
+        width: 100% !important;
+    }
+    section{
+        
+        width: 100%;
+    }
+}
