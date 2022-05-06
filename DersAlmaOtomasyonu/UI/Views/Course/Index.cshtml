@@ -1,0 +1,21 @@
+﻿@model List<EntityLayer.Concrete.CourseSelection>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<table class="table">
+    <tr>
+        <td>Öğrenci Adı</td>
+        <td>Öğrenci Aldığı Ders</td>
+        <td>Dönemi</td>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.Student.StudentFirstName</td>
+            <td>@item.LessonId</td>
+            <td>@item.Student.Period.PeriodNumber</td>
+        </tr>
+    }
+</table>

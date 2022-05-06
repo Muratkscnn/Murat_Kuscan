@@ -23,9 +23,19 @@ namespace BusinessLayer.Concrete
             return _studentdal.GetByID(id);
         }
 
+        public Student GetByIdWithCourses(int id)
+        {
+            return _studentdal.GetByIdWithCourses(id);
+        }
+
         public List<Student> GetList()
         {
             return _studentdal.GetListAll();
+        }
+
+        public List<Student> GetListWithDepartman()
+        {
+            return _studentdal.GetListWithDepartman();
         }
 
         public void StudentAdd(Student student)

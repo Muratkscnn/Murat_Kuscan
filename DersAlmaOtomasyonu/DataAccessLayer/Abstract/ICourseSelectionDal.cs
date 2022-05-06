@@ -7,10 +7,10 @@ using System.Threading.Tasks;
 
 namespace DataAccessLayer.Abstract
 {
-    public interface IStudentDal : IGenericDal<Student>
+    public interface ICourseSelectionDal : IGenericDal<CourseSelection>
     {
-        List<Student> GetListWithDepartman();
-        Student GetByIdWithCourses(int id);
+        public List<CourseSelection> GetListWithStudentandPeriod();
+        public List<CourseSelection> GetListWithLesson();
 
     }
 }
