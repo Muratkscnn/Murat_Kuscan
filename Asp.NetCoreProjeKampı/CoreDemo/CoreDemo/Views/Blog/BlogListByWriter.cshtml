@@ -26,12 +26,12 @@
             <td>@item.Category.CategoryName</td>
             <td>@(item.BlogStatus ? "Aktif" :"Pasif")</td>
             <td><a href="/Blog/DeleteBlog/@item.BlogID" class="btn btn-danger" id="Btnsil">Sil</a></td>
-            <td><a href="#" class="btn btn-warning">Düzenle</a></td>
+            <td><a href="/Blog/EditBlog/@item.BlogID" class="btn btn-warning">Düzenle</a></td>
         </tr>
         
     }
 </table>
-<a class="btn btn-info" id="btnadd">Yeni Blog Oluştur</a>
+<a href="/Blog/BlogAdd" class="btn btn-info" id="btnadd">Yeni Blog Oluştur</a>
 
 
 <script>
