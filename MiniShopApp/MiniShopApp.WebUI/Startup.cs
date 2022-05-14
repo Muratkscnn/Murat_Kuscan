@@ -4,6 +4,9 @@ using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using MiniShopApp.Business.Abstract;
+using MiniShopApp.Business.Concrete;
+using MiniShopApp.Data.Abstract;
 using MiniShopApp.Data.Concrete.EfCore;
 using System;
 using System.Collections.Generic;
@@ -24,9 +27,14 @@ namespace MiniShopApp.WebUI
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddScoped<ICategoryRepository, EfCoreCategoryRepository>();
+            services.AddScoped<IProductRepository, EfCoreProductRepository>();
+            services.AddScoped<ICategoryService, CategoryManager>();
+            services.AddScoped<IProductService, ProductManager>();
             services.AddControllersWithViews();
         }
 
+      
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
@@ -50,6 +58,20 @@ namespace MiniShopApp.WebUI
 
             app.UseEndpoints(endpoints =>
             {
+                endpoints.MapControllerRoute(
+                   name: "search",
+                   pattern: "search", defaults: new { controller = "MiniShop", action = "Search" }
+                   );
+                endpoints.MapControllerRoute(
+                   name: "products",
+                   pattern: "products/{category?}", defaults: new { controller = "MiniShop", action = "List" }
+                   );
+                endpoints.MapControllerRoute(
+                   name: "ProductDetails",
+                   pattern: "{url}",
+                   defaults: new { controller = "MiniShop", action = "Details" }
+                   );
+                
                 endpoints.MapControllerRoute(
                     name: "default",
                     pattern: "{controller=Home}/{action=Index}/{id?}");

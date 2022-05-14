@@ -4,4 +4,9 @@
     <TargetFramework>net5.0</TargetFramework>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\MiniShopApp.Data\MiniShopApp.Data.csproj" />
+    <ProjectReference Include="..\MiniShopApp.Entity\MiniShopApp.Entity.csproj" />
+  </ItemGroup>
+
 </Project>
